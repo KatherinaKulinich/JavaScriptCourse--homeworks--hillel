@@ -24,10 +24,9 @@ console.log(resultMultPositive);                          //добуток по�
 let evenPositiveArr = [];
 let unevenPositiveArr = [];
 
-for (let j of positiveArray) {
-    evenPositiveArr = positiveArray.filter(j => j % 2 == 0);
-    unevenPositiveArr = positiveArray.filter(j => j % 2 != 0);
-}
+evenPositiveArr = positiveArray.filter(j => j % 2 == 0);
+unevenPositiveArr = positiveArray.filter(j => j % 2 != 0);
+
 console.log(evenPositiveArr.length);                //кількість парних позитивних елементів
 console.log(unevenPositiveArr.length);               //кількість непарних позитивних елементів
 
