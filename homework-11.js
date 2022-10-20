@@ -56,7 +56,7 @@ for (value of testArray) {
 console.log(resultMin);                     //мінімальний елемент масиву
 
 for (value of testArray) {
-    if (value > resultMin) {
+    if (value > resultMax) {
         resultMax = value;
     } 
 }
@@ -72,15 +72,26 @@ console.log(posMax);                        // порядковий номер m
 
 // Знайти найбільший серед елементів масиву, ост альні обнулити:
 
-let zeroArr = [];
+// testArray.fill(0);
+// testArray.push(resultMax);
+// console.warn(testArray);
 
-for (let val of testArray) {
-    if (val != resultMax) {
-        zeroArr = testArray.map((val) => 0);
-        zeroArr.push(resultMax);
+for (let i = 0; i < testArray.length; i++) {
+    if (testArray[i] !== resultMax) {
+        testArray[i] = 0;
     }
 }
-console.log(zeroArr);                        
+console.warn(testArray);
+
+// let zeroArr = [];
+
+// for (let val of testArray) {
+//     if (val != resultMax) {
+//         zeroArr = testArray.map((val) => 0);
+//         zeroArr.push(resultMax);
+//     }
+// }
+// console.log(zeroArr);                        
 
 
 
