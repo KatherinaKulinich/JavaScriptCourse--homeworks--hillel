@@ -7,9 +7,7 @@ function generateKey(length, characters) {
     let newArray = [];
 
     for (let k = 0; k < length; k++) {
-        let min = 0;
-        let randomIndex;
-        randomIndex = Math.floor(Math.random() * (arrayCharacters.length - min + 1) ) + min;
+        let randomIndex = Math.floor(Math.random() * (arrayCharacters.length + 1) );
         newArray.push(arrayCharacters[randomIndex]);
     }    
     return newArray.join('');
