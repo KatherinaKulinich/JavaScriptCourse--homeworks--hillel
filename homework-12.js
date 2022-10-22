@@ -57,8 +57,7 @@ let users = [
 
  
 let allBalance = users.map(val => val.balance);
-console.log(allBalance);                                           //array with all balances
-
+// console.log(allBalance);                                           //array with all balances
 
 //delete characters:
 let newArrayBalance = [];
@@ -71,11 +70,12 @@ for (let value of allBalance) {
     item2 = item1.replace(',', '');
     newArrayBalance.push(item2);
 }
-console.warn(newArrayBalance);         
+// console.warn(newArrayBalance);         
 
 
 let arrBalanceNumber = newArrayBalance.map((val) => +val);
-console.log(arrBalanceNumber);                                                        // to number
+
+// console.log(arrBalanceNumber);                                                        // to number
 
 let sumBalance = arrBalanceNumber.reduce(function(a,b) {
     return a + b;
@@ -90,24 +90,23 @@ for (let k = 0; k < arrBalanceNumber.length; k++) {
         arrValBalance.push(k);
     }
 }
-console.log(arrValBalance);                              //arr indexes of balances >2000
 
 let arrayTel = users.map(val => val.phone);
-console.log(arrayTel);                           //arr of all phones
 
+// console.log(arrayTel);                           //arr of all phones
+// console.log(arrValBalance);                              //arr indexes of balances >2000
 
 
 //Вивести масив телефонних номерів користувачів, у яких баланс більше 2000 доларів:
+
 let arrayResult = [];
 
 for (let value of arrValBalance) {
     let tel = '';
-    tel = arrayTel.splice(arrValBalance[value], 1);
+    tel = arrayTel[value];
     arrayResult = arrayResult.concat(tel);
 }
-
-console.log(arrayResult);                          
-
+console.log(arrayResult); 
 
 
 
@@ -117,40 +116,38 @@ console.log(arrayResult);
 
 
 
-// for (let k = 0; k < arrayTel.length; k++) {
-//     // for (let x of arrValBalance) {
-//     //     if (k == x) {
-//     //         arrayResult.push(arrayTel[k]) ;
-//     //     }
-//     // }
-// }
-
-
-
-// console.warn(allBalance);
-
-// let arr = allBalance.map((val) => val.substring(1, 9));
-// console.log(arr);                                                         // del $
-// let arr2 = arr.map((val) => val.substring(0, 1) + val.substring(2,7)) ;
-// console.log(arr2);                                                        // del koma
 
 
 
 
 
-// let newArray = [];
-// for (let i = 0; i < allBalance.length; i++) {
-//     let index1;
-//     let index2;
-//     let a = '';
-//     let b = '';
-//     index1 = allBalance[i].indexOf('$');
-//     a = allBalance[i].slice(0, index1) + allBalance[i].slice(index1 +1 );
-//     // console.log(a);
-//     index2 = a.indexOf(',');
-//     b = a.slice(0, index2) + a.slice(index2 + 1 );
-//     // console.log(b);
-    
-//     newArray.push(b);
-// }
-// console.log(newArray);
+
+
+
+// let arrayResult = [];
+
+// arrayResult = users.reduce(( arrayResult, user) => {
+//     if (user.balance.replace('$', '').replace(',', '') > 2000) {
+//         arrayResult.push(user.phone)
+//     } return arrayResult;
+// }, [])
+
+// console.log(arrayResult); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
