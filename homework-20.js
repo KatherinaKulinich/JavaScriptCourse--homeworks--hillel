@@ -1,73 +1,150 @@
-/*Створити сутність людини:
-
-ім'я
+/* . Створити клас Людина
+властивості
+імʼя
 вік
+методи
+конструктор, який приймає два параметри: імʼя та вік
+метод, який виводить у консоль інформацію про людину
 
-Метод виведення даних */
+2. клас Автомобіль
+властивості
+марка, модель, рік виписку, номерний знак (або на Ваш розсуд)
+власник
+методи
+конструктор, який приймає чотитри параметри (тобто, всі окрім власника): марка, модель, рік виписку, номерний знак
+присвоїти власника - метод повинен приймати екземпляр класу Людина, та зберігати екземпляр класу Людина у відповідному полі, якщо вік більше 18, інакше виводити у консоль відповідне повідомлення
+метод, який виводить у консоль інформацію про автомобіль та викликає метод виводу інформації класу Людина для виведення інформації про власника
+
+
+в якості демонстраціїї створити:
+декілька екземплярів класу Людина
+декілька екземплярів класу Автомобіль
+присвоїти власників автомобілям */
 
 
 
-/* Створити сутність автомобіля:
+class Person {
+    name;
+    age;
 
-Характеристики автомобіля окремими властивостями
-
-Методи:
-Виведення на екран даних про цей автомобіль
-
-Привласнення цього автомобіля власнику (записати в автомобіль об'єкт власника) */
-
-
-class Human {
     constructor(name, age) {
         this.name = name;
         this.age = age;
     }
 
-     get infoHuman() {
-        return `His/her name is ${this.name} and he/she is ${this.age} y.o`
+   getHumanInfo() {
+        console.log(`${this.name} is ${this.age} years old`);
     }
 }
 
-const human1 = new Human('Valya', 39);
-console.warn(human1);
-console.log(human1.infoHuman);
+const valya = new Person('Valya', 39);
+valya.getHumanInfo();
 
-const human2 = new Human('Kate', 27);
-console.warn(human2);
-console.log(human2.infoHuman);
+const kate = new Person('Kate', 27);
+kate.getHumanInfo();
 
-const human3 = new Human('Petya', 54);
-console.warn(human3);
-console.log(human3.infoHuman);
+const petya = new Person('Petya', 54);
+petya.getHumanInfo();
+
+const masha = new Person('Masha', 17);
+masha.getHumanInfo();
+
 
 console.log('-----------------');
 
 
 
-
 class Car {
-    constructor(brand, model, year, color, fuel, owner) {
+    brand;
+    model;
+    year;
+    color;
+    fuel;
+    owner;
+
+    constructor(brand, model, year, color, fuel) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.color = color;
         this.fuel = fuel;
-        this.owner = owner;
+    }
+    
+    addOwner(person) {
+        
+        if (Number(person.age) < 18) {
+            this.owner = '---';
+            console.warn(person.name, ': can not be the owner of a car!');
+            return;
+        }
+        
+        this.owner = person;
     }
 
-     get infoCar () {
-        return `This car is ${this.brand}, model ${this.model}, production year is ${this.year}, color is ${this.color}, fuel is ${this.fuel}, the owner is ${this.owner}`
+    getInfoCar () {
+
+        console.log(`
+        Car brand: ${this.brand}, 
+        model: '${this.model}', 
+        production year: '${this.year}', 
+        color: '${this.color}', 
+        fuel: '${this.fuel}'`);
+
+        
+        if (Number(this.owner.age) > 18) {
+            console.log('owner:');
+            this.owner.getHumanInfo();
+            return;
+        }
+        
+        console.warn('no owner');
     }
 }
 
-const car1 = new Car('mazda', '6', '2003', 'greey', 'diesel', human2);
-console.warn(car1);
-console.log(car1.infoCar);
+const mazda = new Car('mazda', '6', '2003', 'greey', 'diesel');
+mazda.addOwner(kate);
+mazda.getInfoCar();
 
-const car2 = new Car('toyota', 'yaris', '2010', 'red', 'petrol', human1);
-console.warn(car2);
-console.log(car2.infoCar);
+console.log('\n\n');
 
-const car3 = new Car('honda', 'civic', '2014', 'black', 'gas', human3);
-console.warn(car3);
-console.log(car3.infoCar);
+const toyota = new Car('toyota', 'yaris', '2010', 'red', 'petrol');
+toyota.addOwner(masha);
+toyota.getInfoCar();
+console.warn(toyota);
+
+console.log('\n\n');
+
+const honda = new Car('honda', 'civic', '2014', 'black', 'gas');
+honda.addOwner(petya);
+honda.getInfoCar();
+
+console.log('\n\n');
+
+const bmw = new Car('bmw', 'm-5', '2020', 'blue', 'diesel');
+bmw.addOwner(valya);
+bmw.getInfoCar();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// (Number(this.owner.age) > 18) ? this.owner.getHumanInfo() : console.log('owner: -----');
