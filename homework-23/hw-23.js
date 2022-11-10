@@ -14,10 +14,7 @@ const images = [
 
 const image = document.querySelector('img');
 
-for (let i = 0; i <= images.length; i++) {
+const randomUrl = Math.floor(Math.random() * images.length) + 1;
 
-    const randomUrl = Math.floor(Math.random() * images.length) + 1;
-
-    image.setAttribute('src', `./images/dog${randomUrl}.jpeg`);
-    image.setAttribute('alt', `dog${randomUrl}`)
-}
+image.setAttribute('src', `./images/dog${randomUrl}.jpeg`);
+image.setAttribute('alt', `dog${randomUrl}`)
