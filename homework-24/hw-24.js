@@ -11,6 +11,7 @@
 
 
 const images = [
+    './images/dog1.jpeg',
     './images/dog2.jpeg',
     './images/dog3.jpeg',
     './images/dog4.jpeg',
@@ -23,25 +24,26 @@ const buttonPrev = document.getElementById('btn-prev');
 const buttonNext = document.getElementById('btn-next');
 
 
-let sliderNumber = 1;
+let sliderNumber = 0;
 buttonPrev.classList.add('hidden');
+
 
 
 buttonNext.addEventListener('click', () => {
 
     sliderNumber++;
-    image.setAttribute('src', `./images/dog${sliderNumber}.jpeg`);
-    image.setAttribute('alt', `dog${sliderNumber}`);
+    image.setAttribute('src', images[sliderNumber]);
+    image.setAttribute('alt', `dog${sliderNumber + 1}`);
     buttonPrev.classList.remove('hidden');
     
-    if (sliderNumber <= images.length) {
+    if (sliderNumber < images.length - 1) {
         
-        image.setAttribute('src', `./images/dog${sliderNumber}.jpeg`);
-        image.setAttribute('alt', `dog${sliderNumber}`);
+        image.setAttribute('src', images[sliderNumber]);
+        image.setAttribute('alt', `dog${sliderNumber + 1}`);
         return;
     }
     
-    if (sliderNumber === 6) {
+    if (sliderNumber === images.length - 1) {
         
         buttonNext.classList.add('hidden');
         return;
@@ -52,18 +54,18 @@ buttonNext.addEventListener('click', () => {
 buttonPrev.addEventListener('click', () => {
 
     sliderNumber--;
-    image.setAttribute('src', `./images/dog${sliderNumber}.jpeg`)
-    image.setAttribute('alt', `dog${sliderNumber}`)
+    image.setAttribute('src', images[sliderNumber])
+    image.setAttribute('alt', `dog${sliderNumber + 1}`)
     buttonNext.classList.remove('hidden');
     
-    if (sliderNumber > 1) {
+    if (sliderNumber > 0) {
         
-        image.setAttribute('src', `./images/dog${sliderNumber}.jpeg`)
-        image.setAttribute('alt', `dog${sliderNumber}`);
+        image.setAttribute('src', images[sliderNumber])
+        image.setAttribute('alt', `dog${sliderNumber + 1}`);
         return;
     }
 
-    if (sliderNumber === 1) {
+    if (sliderNumber === 0) {
 
         buttonPrev.classList.add('hidden');
         return;
