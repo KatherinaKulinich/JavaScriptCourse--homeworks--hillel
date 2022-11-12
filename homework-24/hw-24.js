@@ -23,55 +23,91 @@ const image = document.querySelector('img');
 const buttonPrev = document.getElementById('btn-prev');
 const buttonNext = document.getElementById('btn-next');
 
-
-let sliderNumber = 0;
 buttonPrev.classList.add('hidden');
 
+
+let sliderNumber = 0;
+function getAnotherSlide() {
+    
+    image.setAttribute('src', images[sliderNumber]);
+    image.setAttribute('alt', `dog${sliderNumber + 1}`);
+
+}
 
 
 buttonNext.addEventListener('click', () => {
 
-    sliderNumber++;
-    image.setAttribute('src', images[sliderNumber]);
-    image.setAttribute('alt', `dog${sliderNumber + 1}`);
     buttonPrev.classList.remove('hidden');
+    sliderNumber++;
+    getAnotherSlide();
     
-    if (sliderNumber < images.length - 1) {
-        
-        image.setAttribute('src', images[sliderNumber]);
-        image.setAttribute('alt', `dog${sliderNumber + 1}`);
-        return;
-    }
+    if (sliderNumber < images.length - 1) return;
     
     if (sliderNumber === images.length - 1) {
         
         buttonNext.classList.add('hidden');
         return;
     }  
-
+    
 });
 
+
 buttonPrev.addEventListener('click', () => {
-
-    sliderNumber--;
-    image.setAttribute('src', images[sliderNumber])
-    image.setAttribute('alt', `dog${sliderNumber + 1}`)
-    buttonNext.classList.remove('hidden');
     
-    if (sliderNumber > 0) {
-        
-        image.setAttribute('src', images[sliderNumber])
-        image.setAttribute('alt', `dog${sliderNumber + 1}`);
-        return;
-    }
-
+    buttonNext.classList.remove('hidden');
+    sliderNumber--;
+    getAnotherSlide();
+    
+    if (sliderNumber > 0)  return;
+    
     if (sliderNumber === 0) {
-
+        
         buttonPrev.classList.add('hidden');
         return;
     }
 
 });
+
+
+
+
+
+
+// buttonNext.addEventListener('click', () => {
+
+//     sliderNumber++;
+//     image.setAttribute('src', images[sliderNumber]);
+//     image.setAttribute('alt', `dog${sliderNumber + 1}`);
+//     buttonPrev.classList.remove('hidden');
+    
+//     if (sliderNumber < images.length - 1) return;
+     
+    
+//     if (sliderNumber === images.length - 1) {
+        
+//         buttonNext.classList.add('hidden');
+//         return;
+//     }  
+
+// });
+
+// buttonPrev.addEventListener('click', () => {
+
+//     sliderNumber--;
+//     image.setAttribute('src', images[sliderNumber]);
+//     image.setAttribute('alt', `dog${sliderNumber + 1}`);
+//     buttonNext.classList.remove('hidden');
+    
+//     if (sliderNumber > 0)  return;
+
+
+//     if (sliderNumber === 0) {
+
+//         buttonPrev.classList.add('hidden');
+//         return;
+//     }
+
+// });
 
 
 
