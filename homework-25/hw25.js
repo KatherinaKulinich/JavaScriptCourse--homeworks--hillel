@@ -36,50 +36,19 @@ reactionElements.forEach((elem) => container.appendChild(elem));
 
 container.addEventListener('click', getVote);
 
+
 function getVote(event) {
 
     let targetItem = event.target.closest('button');
 
-    if (targetItem.tagName = 'button') {
-        targetItem.nextElementSibling.innerText++;
+    if (targetItem) {
+        let count = targetItem.nextElementSibling;
+        count.innerText++;
     }
+
 }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-/* table.onclick = function(event) {
-  let td = event.target.closest('td'); // (1)
-
-  if (!td) return; // (2)
-
-  if (!table.contains(td)) return; // (3)
-
-  highlight(td); // (4)
-}; */
-
-
-
-/* Counter: <input type="button" value="1" data-counter>
-One more counter: <input type="button" value="2" data-counter>
-
-<script>
-  document.addEventListener('click', function(event) {
-
-    if (event.target.dataset.counter != undefined) { // if the attribute exists...
-      event.target.value++;
-    }
-
-  });
-</script> */
