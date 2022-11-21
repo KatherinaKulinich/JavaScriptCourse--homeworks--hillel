@@ -182,8 +182,6 @@ sectionCategories.addEventListener('click', (event) => {
 
 function showInfo(array, item) {
 
-    description.remove.textContent;
-
     for (let obj of array) {
 
         if (obj.id === item) {
