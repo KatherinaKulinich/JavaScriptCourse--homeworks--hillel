@@ -1,0 +1,158 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    padding: 20px;
+    border: 3px solid blue;
+    background-color: aliceblue;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+    border: 2px solid blue;
+    text-align: center;
+    align-items: flex-start;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+label input[type = text] {
+    display: flex;
+    justify-content: space-between;
+}
+
+option {
+    text-transform: uppercase;
+}
+
+legend {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    color: blue;
+}
+
+.text-input {
+    display: flex;
+    justify-content: space-between;
+    width: 380px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.gender-field {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.gender-items {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.lang-field {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.lang-field label {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+}
+
+input {
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    align-self: center;
+    padding: 10px;
+    width: 380px;
+    font-size: 16px;
+    text-transform: uppercase;
+    background-color: blue;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+
+button:hover {
+    color: blue;
+    border: 2px solid blue;
+    background-color: white;
+}
+
+select {
+    font-size: 1rem;
+}
+
+.error {
+    color: red;
+    border: 5px solid red;
+    padding: 10px;
+}
+
+table,
+td, 
+th {
+    border: 3px solid blue;
+    border-collapse: collapse;
+}
+
+table {
+    margin-bottom: 50px;
+}
+
+th, td {
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    padding: 5px;
+
+}
+
+th {
+    text-transform: uppercase;
+    background-color: aliceblue;
+    color: blue;
+}
+
+.hidden {
+    display: none;
+}
+
+#reset {
+    width: 200px;
+    font-size: 10px;
+}
+
+
