@@ -94,14 +94,20 @@ td {
     height: 40px;
     border: 2px solid black;
     padding: 10px;
+
 }
 
 table {
     border-collapse: collapse;
+    width: 345px;
+}
+
+.orders-list {
+    min-height: 363px;
 }
 
 .table-name {
-    background-color: #DBF9DB
+    background-color: #F3E5AB;
 }
 
 .order-field {
@@ -112,6 +118,7 @@ table {
 #description {
     max-width: 330px;
     margin-bottom: 40px;
+    min-height: 130px;
 }
 
 .order-message {
