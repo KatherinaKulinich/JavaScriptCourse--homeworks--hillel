@@ -295,8 +295,6 @@ categorySection.lastElementChild.before(messageHistoryEmpty);
 
 function createListOrders() {
     
-    
-
     listAllOrders.replaceChildren();
     const dataOrders = JSON.parse(localStorage.getItem('orders')) || [];
 
@@ -316,7 +314,9 @@ function createListOrders() {
         buttonDeleteItem.classList.add('button-delete');
         orderItem.append(buttonDeleteItem);
         listAllOrders.append(orderItem);
-
+        table.classList.add('none');
+        description.classList.add('hidden');
+        price.classList.add('hidden');
     }
 }
 
@@ -373,6 +373,7 @@ function validateForm(array) {
     newOrder.sumOrder();
     newOrder.dateFunc();
     newOrder.productName();
+    newOrder.productPrice();
 
     form.classList.add('none');
 
@@ -388,7 +389,7 @@ function createOrderTable(obj) {
     table.replaceChildren();
     table.classList.remove('none');
 
-    const tableNames = ['Назва товару','Імʼя', 'Місто', 'Склад Нової Пошти', 'Спосіб оплати', 'Дата', 'Кількість товару', 'Сума замовлення'];
+    const tableNames = ['Назва товару' ,'Ціна за 1 одиницю' ,'Імʼя', 'Місто', 'Склад Нової Пошти', 'Спосіб оплати', 'Дата', 'Кількість товару', 'Сума замовлення'];
     let orderObject = Object.values(obj);
 
     for (let i = 0; i < tableNames.length; i++) {
@@ -404,6 +405,7 @@ function createOrderTable(obj) {
     }
 };
 
+ 
 
 let listOrders;
 function addOrder(order) {
@@ -419,9 +421,9 @@ function addOrder(order) {
 }
 
 
-
 function Order() {
     this.product = '';
+    this.price = '';
     this.name = form.elements['client-name'].value;
     this.city = form.elements['client-city'].value;
     this.stock = form.elements['client-stock'].value;
@@ -460,6 +462,11 @@ function showInfo(array, item) {
             Order.prototype.productName = function() {
                 this.product= obj.name;
                 return this.product;
+            }
+
+            Order.prototype.productPrice = function() {
+                this.price = obj.price;
+                return this.price;
             }
         }
     }
@@ -535,12 +542,12 @@ listAllOrders.addEventListener('click', (event) => {
     let activeButton = Number(event.target.dataset.id);
     let activeOrderItem =  Number(event.target.dataset.orderId);
 
-    if (activeOrderItem) {
+    if (activeOrderItem >= 0) {
         getOrderInfo(dataOrders, activeOrderItem, products);
         
     }
 
-    if (activeButton) {
+    if (activeButton >= 0) {
         deleteOrderItem(dataOrders, activeButton);
     }
 
@@ -558,13 +565,11 @@ function deleteOrderItem(array, activeElem) {
 
                 localStorage.setItem('orders', JSON.stringify(array));
                 createListOrders(); 
-                table.classList.add('none');
-                description.classList.add('hidden');
-                price.classList.add('hidden');
                 return;
             } 
 
-            localStorage.removeItem('orders');  
+            localStorage.removeItem('orders'); 
+            createListOrders();
         }
     }
 }
@@ -580,7 +585,7 @@ function getOrderInfo(array, activeElem, arrayProduct) {
             
             for  (let obj of arrayProduct) {
 
-                if (obj.name === array[i].product) {
+                if (obj.name === array[i].product && obj.price === array[i].price) {
 
                     description.innerHTML = `<strong>${obj.name}: </strong> ${obj.description}`;
                     price.textContent = `price: ${obj.price}`;
@@ -591,15 +596,4 @@ function getOrderInfo(array, activeElem, arrayProduct) {
         }
     }
 }
-
-
-  // if (array.length > 1) {
-            //     array.splice(i, 1);
-            //     localStorage.setItem('orders', JSON.stringify(array));
-            //     createListOrders();
-            // }
-
-            // if (array.length === 1) {
-            //     localStorage.removeItem('orders');
-            // }
 
