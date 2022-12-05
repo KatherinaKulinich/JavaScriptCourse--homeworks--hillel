@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw-32</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="container">
+        <form action="#" method="get" name="getPost" id="getPost">
+            <label for="enterId">
+                Choose post (enter number from 1 to 100):
+                <input type="number" name="enterId" id="enterId">
+            </label>
+            <button type="submit" name="submitId" id="submitId">
+                Get post
+            </button>
+        </form>
+        <p id="error"></p>
+
+        <div class="postBox hidden">
+            <div class="post-info">
+                <img  
+                    src=""
+                    alt="post-image" 
+                    id="postImage"
+                >
+                <div id="postText">
+                    <p class="name"> 
+                        Name:
+                    </p>
+                    <p id="postName"></p>
+                    <p class="descr">
+                        Description:
+                    </p>
+                    <p id="postDescription"></p>
+                </div>
+            </div>
+
+            <button 
+                type="submit" 
+                name="getComment" 
+                id="getComment" 
+            >
+                get comments
+            </button>
+
+            <div class="comments hidden">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./hw32.js"></script>
+</html>
