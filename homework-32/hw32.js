@@ -30,20 +30,14 @@ form.addEventListener('submit', (event) => {
     const userValue = value.replaceAll(/\b0+/g, '').replaceAll(/\D/g, '');
 
     if (userValue < 1 || userValue > 100) {
-
-        let error = new Error('invalid value. try again!');
-        message.innerHTML = `${error.message}`
-        setTimeout(() => {
-            message.innerHTML = '';
-        }, 3000);
+        isError('invalid value. try again!');
         return;
     }
     message.innerHTML = 'loading...';
 
     
     fetch(`https://jsonplaceholder.typicode.com/posts/${userValue}`)
-
-    .then((Response) => Response.json())
+    .then((response) => response.json())
     .then((json) => {
         postBox.classList.remove('hidden');
         postName.innerHTML = `${json.title}`;
@@ -51,27 +45,16 @@ form.addEventListener('submit', (event) => {
         message.innerHTML = '';
     })
     .catch((error) => {
-        error = new Error('Oops, something went wrong. Try later');
-
-        message.innerHTML = `${error.message}`
-        setTimeout(() => {
-            message.innerHTML = '';
-        }, 3000);
+        isError('Oops, something went wrong. Try later');
     })
     
-
     .then(() => fetch(`https://jsonplaceholder.typicode.com/photos/${userValue}`))
-    .then((Response) => Response.json())
+    .then((response) => response.json())
     .then((json) => {
         postImage.setAttribute('src', `${json.url}`)
     })
     .catch((error) => {
-        error = new Error('error: picture not found');
-
-        message.innerHTML = `${error.message}`
-        setTimeout(() => {
-            message.innerHTML = '';
-        }, 3000);
+        isError('error: picture not found');
     })
 })
 
@@ -83,8 +66,7 @@ buttonGetComment.addEventListener('click', () => {
     const userValue = form.elements['enterId'].value;
     
     fetch(`https://jsonplaceholder.typicode.com/comments`)
-
-    .then((Response) => Response.json())
+    .then((response) => response.json())
     .then((json) => {
 
         for (let obj of json) {
@@ -111,12 +93,7 @@ buttonGetComment.addEventListener('click', () => {
     })
 
     .catch((error) => {
-        error = new Error('error: comments not found');
-
-        message.innerHTML = `${error.message}`
-        setTimeout(() => {
-            message.innerHTML = '';
-        }, 3000);
+        isError('error: comments not found');
     })
 })
 
@@ -132,5 +109,12 @@ input.addEventListener('focus', () => {
     commentsList.classList.add('hidden');
 })
 
+
+function isError(text) {
+    message.innerHTML = text;
+    setTimeout(() => {
+        message.innerHTML = '';
+    }, 3000);
+}
 
 
