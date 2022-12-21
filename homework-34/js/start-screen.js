@@ -33,7 +33,7 @@ function isLocation(position) {
     getForecastData(apiUserLocation);
 }
 
-function errorLocation() {
+function onGetCurrentPositionError() {
     region.innerHTML = 'location not found automatically';
     region.style.fontSize = '50px';
     temperatureMain.innerHTML = '--&deg; C'
