@@ -33,11 +33,11 @@ function onGetCurrentPositionSuccess(position) {
     getForecastData(apiUserLocation);
 }
 
-function errorLocation() {
-    region.innerHTML = 'location not found';
-    region.style.fontSize = '40px';
-    temperatureMain.innerHTML = '-&deg;C'
-    hideLoader()
+function onGetCurrentPositionError() {
+    region.innerHTML = 'location not found automatically';
+    region.style.fontSize = '50px';
+    temperatureMain.innerHTML = '--&deg; C'
+    loader.style.display = "none";
 }
 
 
