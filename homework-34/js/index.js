@@ -16,7 +16,30 @@ function getForecastData(api) {
         humidityValue.innerHTML = `${json.main.humidity} %`;
         region.innerHTML = json.name;
         
-        let weatherArray = json.weather;
+        showWeather(json);
+    })
+    .catch((error) => {
+        showErrorMessage()
+    })
+    .finally(() => {
+        hideLoader()
+    })
+}
+
+
+function showWeather(data) {
+    let actualTemp =  `${Math.round(data.main.temp)}&deg;C`;
+        temperatureValue.innerHTML = actualTemp;
+        temperatureMain.innerHTML = actualTemp;
+        temperatureMaxValue.innerHTML = `${Math.round(data.main.temp_max)}&deg;C`;
+        temperatureMinValue.innerHTML = `${Math.round(data.main.temp_min)}&deg;C`;
+        pressureValue.innerHTML = `${data.main.pressure} hPa`;
+        windSpeedValue.innerHTML = `${data.wind.speed} meter/sec`;
+        windDirectionValue.innerHTML = `${data.wind.deg} deg`;
+        humidityValue.innerHTML = `${data.main.humidity} %`;
+        region.innerHTML = data.name;
+        
+        let weatherArray = data.weather;
         weatherArray.forEach(element => {
             if(element.id) {
                 iconsBox.replaceChildren();
@@ -61,37 +84,28 @@ function getForecastData(api) {
                 body.style.backgroundImage = "url('./images/cloudy.jpg')";
                 return;
             }
-       });
-    })
-    .catch((error) => {
-        errorMessage.style.display = "block";
-        errorMessage.innerHTML = `Error. Try again!`;
-        showErrorMessage()
-    })
-    .finally(() => {
-        loader.style.display = "none";
-    })
+        });
 }
 
-
-
+function getWeatherDataByCity(city, apiKey) {
+    const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&ç=metric&APPID=${apiKey}&units=metric`;
+    getForecastData(api);
+}
 
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    loader.style.display = "flex";
+    showLoader()
 
     const data = new Date();
-    getDate(data, time, date);
+    getCurrentDate(data, time, date);
 
     let value = form.elements["userLocation"].value;
     let validValue = value.replaceAll(/[^-a-zа-яіё\s]/gi, '');
-
-    const api = `https://api.openweathermap.org/data/2.5/weather?q=${validValue}&ç=metric&APPID=${key}&units=metric`;
-    getForecastData(api);
+    getWeatherDataByCity(validValue, key);
 
     form.elements["userLocation"].value = '';
-})
+});
 
 
 
