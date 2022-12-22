@@ -28,6 +28,7 @@ function getForecastData(api) {
 
 
 function showWeather(data) {
+    region.removeAttribute('style', '');
     let actualTemp =  `${Math.round(data.main.temp)}&deg;C`;
         temperatureValue.innerHTML = actualTemp;
         temperatureMain.innerHTML = actualTemp;

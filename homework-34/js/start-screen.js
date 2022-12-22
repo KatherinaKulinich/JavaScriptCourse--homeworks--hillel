@@ -34,9 +34,9 @@ function onGetCurrentPositionSuccess(position) {
 }
 
 function onGetCurrentPositionError() {
-    region.innerHTML = 'location not found automatically';
-    region.style.fontSize = '50px';
-    temperatureMain.innerHTML = '--&deg; C'
+    region.innerHTML = 'location not found';
+    region.style.fontSize = '40px';
+    temperatureMain.innerHTML = '--&deg;C'
     loader.style.display = "none";
 }
 
@@ -53,5 +53,5 @@ window.addEventListener('load', () => {
 
     showBackground(currentMonth, body);
 
-    navigator.geolocation.getCurrentPosition(onGetCurrentPositionSuccess, errorLocation);
+    navigator.geolocation.getCurrentPosition(onGetCurrentPositionSuccess, onGetCurrentPositionError);
 })
