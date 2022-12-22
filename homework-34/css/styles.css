@@ -1,0 +1,12 @@
+@import './normalize.css';
+@import './fonts.css';
+@import './settings.css';
+
+@import './container.css';
+@import './blocks/information.css';
+@import './blocks/location-form.css';
+@import './blocks/main-screen.css';
+
+
+
+
