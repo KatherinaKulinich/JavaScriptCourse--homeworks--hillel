@@ -1,21 +1,9 @@
-
 function getForecastData(api) {
     fetch(api)
     .then((response) => {
         return response.json();
     })
     .then((json) => {
-        let actualTemp =  `${Math.round(json.main.temp)}&deg;C`;
-        temperatureValue.innerHTML = actualTemp;
-        temperatureMain.innerHTML = actualTemp;
-        temperatureMaxValue.innerHTML = `${Math.round(json.main.temp_max)}&deg;C`;
-        temperatureMinValue.innerHTML = `${Math.round(json.main.temp_min)}&deg;C`;
-        pressureValue.innerHTML = `${json.main.pressure} hPa`;
-        windSpeedValue.innerHTML = `${json.wind.speed} meter/sec`;
-        windDirectionValue.innerHTML = `${json.wind.deg} deg`;
-        humidityValue.innerHTML = `${json.main.humidity} %`;
-        region.innerHTML = json.name;
-        
         showWeather(json);
     })
     .catch((error) => {
@@ -92,6 +80,8 @@ function getWeatherDataByCity(city, apiKey) {
     const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&ç=metric&APPID=${apiKey}&units=metric`;
     getForecastData(api);
 }
+
+
 
 
 form.addEventListener('submit', (event) => {

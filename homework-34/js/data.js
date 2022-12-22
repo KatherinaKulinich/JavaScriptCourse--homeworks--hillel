@@ -1,4 +1,3 @@
-
 const body = document.querySelector('.body');
 const time = document.querySelector('#time');
 const date = document.querySelector('#date');
