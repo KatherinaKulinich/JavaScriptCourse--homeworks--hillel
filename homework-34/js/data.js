@@ -1,4 +1,3 @@
-
 const body = document.querySelector('.body');
 const time = document.querySelector('#time');
 const date = document.querySelector('#date');
@@ -29,6 +28,8 @@ loader.style.display = "none";
 
 
 
+
+
 function showErrorMessage() {
     errorMessage.style.display = "block";
     errorMessage.innerHTML = `Error. Try again!`;
@@ -50,9 +51,11 @@ function getCurrentDate(data, elemTime, elemDate) {
     elemDate.innerHTML = currentDate;
 }
 
+
 function showLoader() {
     loader.style.display = "flex";
 }
+
 
 function hideLoader() {
     loader.style.display = "none";

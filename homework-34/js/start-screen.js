@@ -1,5 +1,3 @@
-
-
 function showBackground(data, elem) {
     if (data === 11 || data <= 1) {
         elem.style.backgroundImage= "url('./images/winter.jpg')";
@@ -23,8 +21,6 @@ function showBackground(data, elem) {
 }
 
 
-
-
 function onGetCurrentPositionSuccess(position) { 
     let long = position.coords.longitude;
     let lat = position.coords.latitude;
@@ -37,9 +33,8 @@ function onGetCurrentPositionError() {
     region.innerHTML = 'location not found';
     region.style.fontSize = '40px';
     temperatureMain.innerHTML = '--&deg;C'
-    loader.style.display = "none";
+    hideLoader();
 }
-
 
 
 
