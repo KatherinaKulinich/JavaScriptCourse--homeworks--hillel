@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    font-size: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #FEFBF7;
+    min-height: 100vh;
+    padding: 60px;
+  }
+  
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    border-bottom: 5px solid #AA6C39;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    color: #AA6C39;
+    text-transform: uppercase;
+  }
+  
+  .title__link {
+    color: green;
+    font-size: 16px;
+  }
+  
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+  
+  @media screen and (max-width: 991px) {
+    .products {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .products {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+  
+  .product {
+    padding: 30px;
+    min-height: 400px;
+    min-width: 250px;
+    background-color: #FBF2E2;
+    box-shadow:8px 8px 38px 0px #bdbcbc ;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .disabled {
+    background-color: #ECECEC;
+  }
+  
+  .product:hover {
+    box-shadow:8px 8px 38px 0px #7d7d7d ;
+  }
+  
+  .product:active {
+    box-shadow:8px 8px 38px 0px #513604  ;
+  }
+  
+  .product__title {
+    color: #513604;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0;
+  }
+  
+  .product__message {
+    margin: 0;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    border: 1px solid #B0B0B0 ;
+  }
+  
+  .product__image {
+    width: 200px;
+    height: 200px;
+    background: #FFFFFF;
+  }
+  
+  .product__price {
+    color: #B96B13 ;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .product__btn {
+    min-width: 200px;
+    max-width: 100%;
+    height: 40px;
+    text-transform: uppercase;
+    background-color: #0A7406 ;
+    border: 1px solid #0A7406;
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: none;
+  }
+  
+  .product__btn:hover {
+    background-color: #86CF84 ;
+    color: #0A7406;
+  }
+  
+  .product__btn:hover {
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 575px) {
+    .product__btn {
+      width: 100%;
+    }
+  }
+  
+  .product:hover {
+    cursor: pointer;
+  }
+  
