@@ -1,0 +1,11 @@
+.content {
+    grid-column: 2/3;
+    grid-row: 2/3;
+
+    border: 3px solid #DF6D09;
+    background-color: #FDE382;
+}
+
+.content__text {
+    color: #DF6D09;
+}

@@ -1,0 +1,11 @@
+.sidebar {
+    grid-column: 1/2;
+    grid-row: 2/3;
+
+    border: 3px solid #4D0965;
+    background-color: #DEB1EE;
+}
+
+.sidebar__text {
+    color: #4D0965;
+}
