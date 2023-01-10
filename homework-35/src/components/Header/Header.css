@@ -1,0 +1,11 @@
+.header {
+    grid-column: 1/3;
+    grid-row: 1/2;
+
+    border: 3px solid #2A5008;
+    background-color: #BBE496;
+}
+
+.header__text {
+    color: #2A5008;
+}
